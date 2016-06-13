@@ -32,7 +32,8 @@ Then "POST" request is sent to server with file provided and tableName provided.
 	  suppose csv file has million records so its not advisable to send this much amount of data back & forth. 
 	  So, we are just sending some rows of data from server to client at this step. 
 	  Rest of data can be lazy loaded.
-	  Then user can click on create table button table would be created on our backend and then user can also look at table created by "view table" option.
+	  Then user can click on create table button table would be created on our backend and 
+	  then user can also look at table created by "view table" option.
 
 	- Now if csv contains millions of records so it is not advisable to do database i/o for each row 
 	  to be inserted in table so we created an batch of configurable size and then using batch 
