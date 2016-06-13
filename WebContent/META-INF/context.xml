@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+    <!-- Specify a JDBC datasource -->
+    <Resource name="jdbc/db" auth="Container"
+        type="javax.sql.DataSource" username="root" password="admin"
+        driverClassName="com.mysql.jdbc.Driver"
+        url="jdbc:mysql://localhost/csvparser"/>
+ 
+</Context>

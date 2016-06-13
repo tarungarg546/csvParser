@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!--Prefetch the dns to save dns resolution to save latency time avg. 1sec-->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <meta name="description" content="Parse CSV and push to DB">
+    <meta name="keywords" content="CSV,Java">
+    <meta name="author" content="Mango People">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Push it!</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <script src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/angular-route.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script type="text/javascript">
+        if('serviceWorker' in navigator) {  
+          navigator.serviceWorker  
+                   .register('sw.js')  
+                   .then(function() { console.log('Service Worker Registered'); });
+        }
+    </script>
+    <style type="text/css">
+    header,
+    main,
+    footer {
+        padding-left: 240px;
+    }
+    
+    @media only screen and (max-width: 992px) {
+        header,
+        main,
+        footer {
+            padding-left: 0;
+        }
+    }
+    
+    .table-headings {
+        background-color: lightcoral !important;
+        border-bottom: 1px solid #d0d0d0;
+        color: white;
+    }
+    .scrollable-table{
+    	height:410px;
+    	overflow-y:auto;
+    }
+    thead tr td {
+        text-align: center;
+    }
+    table,
+    thead,
+    tbody,
+    th,
+    td {
+        border: 1px solid black;
+    }
+    </style>
+</head>
+
+<body ng-app="ngApp" ng-cloak>
+    <header>
+        <!--Top Nav -->
+        <nav class="top-nav">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="#!" class="brand-logo">CSV Parser</a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li> <a href="#/create">Create Table</a></li>
+                        <li> <a href="#/view">View Table</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!--Side Nav -->
+        <ul id="nav-mobile" class="side-nav fixed">
+            <li class="logo">
+                <a id="" href="#!" class="brand-logo">
+                Mango People
+                </a>
+            </li>
+            <li class="no-padding">
+                <ul class="collapsible collapsible-accordion">
+                    <li class="bold">
+                        <a class="collapsible-header  waves-effect waves-teal">About us</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="http://tarungarg546.github.io" target="_blank">Tarun Garg</a></li>
+                                <li><a href="javascript:alert('God helps those who help themselves ;)');" target="_blank">Sahil Arora</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="bold">
+                        <a class="collapsible-header  waves-effect waves-teal">Technology Used</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="http://getmdl.io" target="_blank">Material Design</a></li>
+                                <li><a href="http://angularjs.org" target="_blank">Angular JS</a></li>
+                                <li><a href="http://java.com" target="_blank">JAVA</a></li>
+                                <li><a href="http://jdbc.com" target="_blank">JDBC</a></li>
+                                <li><a href="http://mysql.org" target="_blank">MySQL</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="bold">
+                        <a class="collapsible-header  waves-effect waves-teal">Components</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="#/create">Create Table</a></li>
+                                <li> <a href="#/view">View Table</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row">
+                <ng-view></ng-view>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="js/app.controller.js"></script>
+<script type="text/javascript" src="js/app.module.js"></script>
+</html>

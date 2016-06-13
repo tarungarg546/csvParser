@@ -1,0 +1,76 @@
+<div class="row">
+	<div class="row"></div><div class="row"></div>
+    <form class="col s12" ng-submit="submit();">
+        <div class="row">
+            <div class="file-field input-field">
+                <div class="btn">
+                    <span>File</span>
+                    <input type="file" file-model="form.full_file">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path" type="text" placeholder="Click to browse.">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <input ng-model="form.table_name" id="optional_table_name" type="text">
+                <label for="optional_table_name">Table name(Optional- If not provided File Name will be taken as default file name)</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <button class="btn waves-effect waves-light" type="submit">
+                    Create Schema
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="row" style="font-weight:bold;" ng-show="tableName">
+	<button class="btn waves-effect waves-light col s12" type="button">
+		Proposed Schema for Table Name :- {{tableName}}
+		<i class="material-icons right left">cloud</i>
+	</button>
+</div>
+<div class="row scrollable-table" ng-show="tableHeaders" style="overflow-x:auto;">
+    <table class="bordered striped highlight centered responsive-table col s12" style="white-space:nowrap;" border="1">
+        <thead>
+            <tr>
+                <td ng-repeat="value in deleteCols track by $index">
+                    <input type="checkbox" id="{{$index}}" ng-model="deleteCols[$index]"/>
+                    <label for="{{$index}}">Delete this Column</label>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table-headings">
+                <td ng-repeat="header in tableHeaders track by $index" ng-bind="header">
+                </td>
+            </tr>
+            <tr>
+                <td ng-repeat="dataType in dataTypes track by $index">
+                    <select ng-model="dataType.type" class="browser-default">
+                        <option ng-value="INT">INT</option>
+                        <option ng-value="FLOAT">FLOAT</option>
+                        <option ng-value="DATE">DATE</option>
+                        <option ng-value="TIME">TIME</option>
+                        <option ng-value="YEAR">YEAR</option>
+                        <option ng-value="DATETIME">DATETIME</option>
+                        <option ng-value="TEXT">TEXT</option>
+                    </select>
+                </td>
+            </tr>
+            <tr ng-repeat="row in tableData track by $index">
+                <td ng-repeat="data in row track by $index" ng-bind="data"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="row" ng-show="tableName">
+    <button class="btn waves-effect waves-light" type="button" ng-click="createTable();">
+        Create Table
+        <i class="material-icons right">send</i>
+    </button>
+</div>

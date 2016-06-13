@@ -1,0 +1,43 @@
+<div class="row">
+	<div class="row"></div><div class="row"></div>
+	<form class="col s12" ng-submit="submit();" method="GET">
+		<div class="row">
+			<div class="input-field">
+                <input ng-model="tableName" id="table_name" type="text">
+                <label for="table_name">Table name</label>
+            </div>
+		</div>
+		<div class="row">
+            <div class="input-field">
+                <button class="btn waves-effect waves-light" type="submit">
+                    Show Table
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>
+	</form>
+	<div class="row"></div>
+	<div class="row scrollable-table col s12" ng-show="tableHeaders" style="overflow-x:auto;">
+	    <table class="bordered striped highlight centered responsive-table" style="white-space:nowrap;" border="1">
+	        <thead>
+	            <tr class="table-headings">
+	                <td ng-repeat="header in tableHeaders track by $index" ng-bind="header">
+	                </td>
+	            </tr>
+	        </thead>
+	        <tbody>
+	            <tr ng-repeat="row in tableData track by $index">
+	                <td ng-repeat="data in row track by $index" ng-bind="data"></td>
+	            </tr>
+	        </tbody>
+	    </table>
+	</div>
+	<div class="row" ng-show="tableHeaders">
+        <div class="input-field">
+            <button class="btn waves-effect waves-light" type="button" ng-click="delete(tableName);">
+                Destroy Table
+                <i class="material-icons right">send</i>
+            </button>
+        </div>
+    </div>
+</div>
